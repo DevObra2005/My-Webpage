@@ -60,7 +60,17 @@ ul:hover a:hover{
     height: 50vh;
     padding-left: 10%;
     padding-top: 3%;
-
+    animation: fadeInScale 1.0s ease-in-out;
+}
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9); /* Start slightly smaller */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* End at normal size */
+    }
 }
 .about_me{
     position: absolute;
@@ -69,6 +79,7 @@ ul:hover a:hover{
     left: 30%;
     top: 22%;
     margin-left: 0;
+    animation: slideInLeft 1.0s ease-in-out;
 }
 .about_me h1{
     color: turquoise;
@@ -88,4 +99,125 @@ ul:hover a:hover{
     font-family: poppins;
     font-weight: bold;
     font-style: italic;
+}
+.contact-info{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 40%;
+    top: 40%;
+    margin-left: 30%;
+    color: white;
+    animation: slideInLeft 1.0s ease-in-out;
+}
+.arrow{
+    margin-left: 10px;
+    color: turquoise;
+    font-weight: 800;
+}
+.label{
+    font-family: poppins;
+    font-weight: 700;
+    color: white;
+}
+
+.container {
+    width: 50% ;
+    margin: 0 auto;
+}
+
+.interest_line {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.interests {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: white;
+    gap: 20px;
+    height: 9vh;
+    width: 70%;
+    left: 18%;
+    animation: fadeIn 2.5s ease-in-out;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start fully transparent */
+    }
+    100% {
+        opacity: 1; /* End fully visible */
+    }
+}
+
+.interest-item {
+    position: relative;
+    background: #2a2a2a;
+    overflow: hidden;
+    border-radius: 5px;
+    text-align: left;
+    padding: 13px;
+    width: 210px; /* Adjust the width of each item */
+    height: 50px; /* Adjust the height of each item */
+    transition: transform 0.3s ease-in-out, 0.3s ease-in-out; /* Smooth scaling and background transition */
+}
+
+.interest-item:hover {
+    transform: scale(1.05); /* Slightly enlarge the item */
+    background: #3a3a3a; /* Change background color */
+}
+
+.interest-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid turquoise;
+    transition: left 0.4s ease-in-out; /* Smooth border animation */
+}
+
+.interest-item:hover::before {
+    left: 0; /* Slide the border into view */
+}
+
+.txt_value{
+    font-family: poppins;
+    font-weight: 300;
+    color: white;
+    font-size: 13px;
+    margin-left: 30px;
+}
+
+.i.interest-item:hover {
+    background: #3a3a3a;
+    transition:  0.5s ease-in-out;
+}
+.interest-item img {
+    display: flex;
+    position: absolute;
+    width: 22px;
+    transition: transform 0.5s ease-in-out; /* Smooth rotation */
+}
+
+.interest-item:hover img {
+    transform: rotate(360deg); /* Rotate the icon */
+}
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px); /* Start off-screen to the left */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End in its original position */
+    }
 }
