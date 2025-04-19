@@ -16,9 +16,9 @@ nav{
     align-items: center;
     padding: 30px 30px;
     margin-right: 20px;
-    position: relative; /* Ensure proper positioning */
-    z-index: 10; /* Bring navigation to the front */
-    animation: slideDown 0.8s ease-in-out; /* Slide-down animation */
+    position: relative; 
+    z-index: 10; 
+    animation: slideDown 0.8s ease-in-out; 
 }
 @keyframes slideDown {
     0% {
@@ -61,7 +61,7 @@ ul:hover a:hover{
     height: 86vh;
     float: right;
     padding-left: 13%;
-    animation: fadeInScale 1.0s ease-in-out; /* Fade-in and scale-up animation */
+    animation: fadeInScale 1.0s ease-in-out; 
     }
 .home_myname{
     position: absolute;
@@ -72,7 +72,7 @@ ul:hover a:hover{
     padding-top: 10%;
     line-height: 1;
     letter-spacing: 1px;
-    animation: slideInLeft 1.0s ease-in-out; /* Slide-in animation */
+    animation: slideInLeft 1.0s ease-in-out; 
 }
 .home_myname h1{
     font-size: 50px;
@@ -100,22 +100,22 @@ ul:hover a:hover{
 @keyframes fadeInScale {
     0% {
         opacity: 0;
-        transform: scale(0.9); /* Start slightly smaller */
+        transform: scale(0.9); 
     }
     100% {
         opacity: 1;
-        transform: scale(1); /* End at normal size */
+        transform: scale(1); 
     }
 }
 
 @keyframes slideInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-50px); /* Start off-screen to the left */
+        transform: translateX(-50px); 
     }
     100% {
         opacity: 1;
-        transform: translateX(0); /* End in its original position */
+        transform: translateX(0); 
     }
 }
 
@@ -127,21 +127,21 @@ ul:hover a:hover{
     margin-left: 8%;
     padding-top: 8px;
     z-index: 10;
-    animation: slideInLeft 1.0s ease-in-out; /* Slide-in animation */
+    animation: slideInLeft 1.0s ease-in-out; 
 }
 
 .social-icons a {
-    color: white; /* Icon color */
-    font-size: 20px; /* Icon size */
+    color: white; 
+    font-size: 20px; 
     transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-    color: turquoise; /* Change color on hover */
+    color: turquoise; 
 }
 
 /* Media query for phone screens */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
     * {
         margin: 0;
         padding: 0;
@@ -150,69 +150,74 @@ ul:hover a:hover{
     }
     main{
         background-color: #050608;
-        background-image: none; /* Remove background image for mobile */;
-        height: 100vh; /* Set height to 100vh for mobile */
+        background-image: none; 
+        height: 100vh; 
     }
     nav {
-        display:flex; /* Stack navigation items vertically */
+        display:flex; 
         padding: 20px;
     }
 
     ul {
-        display: flex; /* Stack menu items vertically */
+        display: flex; 
         align-items: center;
-        gap: 10px; /* Add spacing between menu items */
+        gap: 10px; 
     }
 
     ul li a {
-        margin: 10px 0; /* Add spacing between menu items */
-        font-size: 10px; /* Increase font size for better readability */
+        margin: 10px 0; 
+        font-size: 10px; 
     }
 
     .logo {
-        font-size: 20px; /* Adjust logo size */
-        margin-left: 0; /* Center the logo */
+        font-size: 20px; 
+        margin-left: 0; 
         text-align: center;
     }
 
-    .home_img {
-        width: 60%; /* Make the image take full width */
-        height: 53 vh; /* Maintain aspect ratio */
-        padding-left: 5%; /* Remove padding */
+    .home_img{
+        width: 100%; 
+        height: 60vh; 
         position: absolute;
-        top: 45%;
+        top: 40%;
+    }
+    .home_img img{
+        width: 100%; 
+        position: absolute;
+        height: 60vh;
+        right: 5%;
     }
 
     .home_myname {
-        width: 100%; /* Make the text container take full width */
-        margin-left: 0; /* Center the text */
-        padding-top: 20%; /* Adjust padding for better spacing */
-        text-align: center; /* Center-align text */
+        width: 100%; 
+        margin-left: 0;
+        padding-top: 20%; 
+        text-align: center; 
     }
 
     .home_myname h1 {
-        font-size: 25px; /* Adjust heading size */
+        font-size: 25px; 
     }
     .home_myname h4 {
-        font-size: 15px; /* Adjust subheading size */
+        font-size: 15px; 
     }
     .home_myname p {
-        font-size: 15px; /* Adjust paragraph size */
+        font-size: 15px; /
     }
     .font_design{
-        font-size: 16px; /* Adjust font size */
+        font-size: 16px; 
     }
 
     .social-icons {
         position: absolute;
-        top: 28%; /* Reset top positioning */
-        left: 38%; /* Center the icons horizontally */
-        margin-left: 0; /* Center the icons */
+        top: 29%; 
+        left: 38%; 
+        margin-left: 0; 
         align-items: center;
     }
 
     .social-icons a {
-        font-size: 18px; /* Adjust icon size */
+        font-size: 18px;
         margin-top: 0%;
     }
 }
