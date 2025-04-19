@@ -177,7 +177,7 @@ ul:hover a:hover{
 
     .home_img {
         width: 60%; /* Make the image take full width */
-        height: 55vh; /* Maintain aspect ratio */
+        height: 53vh; /* Maintain aspect ratio */
         padding-left: 5%; /* Remove padding */
         position: absolute;
         top: 45%;
