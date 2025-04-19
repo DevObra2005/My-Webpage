@@ -204,7 +204,7 @@ ul:hover a:hover{
 
     .social-icons {
         position: absolute;
-        top: 25%; /* Reset top positioning */
+        top: 28%; /* Reset top positioning */
         left: 38%; /* Center the icons horizontally */
         margin-left: 0; /* Center the icons */
         align-items: center;
