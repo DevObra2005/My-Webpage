@@ -294,4 +294,47 @@ ul:hover a:hover{
         margin-left: 0; /* Center the logo */
         text-align: center;
     }
+    .about_img{
+        width: 60%; /* Adjust width for mobile */
+        height: 20vh; /* Adjust height for mobile */
+        position: relative;
+        left: 20%;
+        margin-top: 10%;
+    }
+    .about_me h1{
+        width: 100%;
+        font-size: 13px; /* Adjust font size for mobile */
+        text-align: center;
+        margin-top: 35%;
+        position: absolute;
+        right: 18%;
+    }
+    .about_me p{
+        margin-top: 40%;
+        margin-right: 30%;
+        margin-left: 0%;
+        width: 100%;
+        color: white;
+        top: 32%;
+        animation: slideInLeft 1.0s ease-in-out;
+        font-size: 13px; /* Adjust font size for mobile */
+    }
+    span{
+        font-size: 10px; /* Adjust font size for mobile */
+        font-family: poppins;
+        font-weight: bold;
+        font-style: italic;
+    }
+    .contact-info{
+        width: 50%;
+        top: 50%;
+        color: white;
+        animation: slideInLeft 1.0s ease-in-out;
+    }
+    .container {
+        position: absolute;
+        top: 70%;
+        width: 80%; /* Adjust width for mobile */
+        margin: 0 auto;
+    }
 }

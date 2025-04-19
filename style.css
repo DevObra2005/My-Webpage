@@ -151,6 +151,7 @@ ul:hover a:hover{
     main{
         background-color: #050608;
         background-image: none; /* Remove background image for mobile */;
+        height: 100vh; /* Set height to 100vh for mobile */
     }
     nav {
         display:flex; /* Stack navigation items vertically */
@@ -179,7 +180,7 @@ ul:hover a:hover{
         height: 55vh; /* Maintain aspect ratio */
         padding-left: 5%; /* Remove padding */
         position: absolute;
-        top: 43%;
+        top: 45%;
     }
 
     .home_myname {
@@ -211,7 +212,7 @@ ul:hover a:hover{
     }
 
     .social-icons a {
-        font-size: 13px; /* Adjust icon size */
+        font-size: 18px; /* Adjust icon size */
         margin-top: 0%;
     }
 }
