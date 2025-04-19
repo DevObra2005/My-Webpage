@@ -187,7 +187,7 @@ ul:hover a:hover{
     }
     .img-gallery{
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: 20%; /* Center the images */
         margin: 0 auto; /* Center the images */
         width: 60%; /* Adjust width for mobile */
