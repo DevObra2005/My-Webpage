@@ -267,3 +267,31 @@ ul:hover a:hover{
         transform: translateX(0); /* End in its original position */
     }
 }
+/* Media query for phone screens */
+@media screen and (max-width: 768px) {
+    main{
+        background-color: #050608;
+        background-image: none; /* Remove background image for mobile */
+    }
+    nav {
+        display:flex; /* Stack navigation items vertically */
+        padding: 20px;
+    }
+
+    ul {
+        display: flex; /* Stack menu items vertically */
+        align-items: center;
+        gap: 10px; /* Add spacing between menu items */
+    }
+
+    ul li a {
+        margin: 10px 0; /* Add spacing between menu items */
+        font-size: 10px; /* Increase font size for better readability */
+    }
+
+    .logo {
+        font-size: 20px; /* Adjust logo size */
+        margin-left: 0; /* Center the logo */
+        text-align: center;
+    }
+}
