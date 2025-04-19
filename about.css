@@ -129,10 +129,11 @@ ul:hover a:hover{
 .interest_line {
     text-align: center;
     margin-bottom: 40px;
-    color: white;
+    color: turquoise;
     font-family: poppins;
     font-weight: 300;
     font-size: 20px;
+    animation: slideInLeft 1.0s ease-in-out;
 }
 
 .interests {
@@ -146,14 +147,35 @@ ul:hover a:hover{
     height: 9vh;
     width: 70%;
     left: 18%;
-    animation: fadeIn 2.5s ease-in-out;
+    animation: bounceIn 0.8s ease-out;
+    animation-fill-mode: both;
 }
-@keyframes fadeIn {
+
+@keyframes bounceIn {
     0% {
-        opacity: 0; /* Start fully transparent */
+        opacity: 0;
+        transform: translateY(50px); /* Start below */
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10px); /* Bounce up */
     }
     100% {
-        opacity: 1; /* End fully visible */
+        transform: translateY(0); /* Settle in original position */
+    }
+}
+
+@keyframes staggeredBounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Start below */
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10px); /* Bounce up */
+    }
+    100% {
+        transform: translateY(0); /* Settle in original position */
     }
 }
 
@@ -167,6 +189,8 @@ ul:hover a:hover{
     width: 210px; /* Adjust the width of each item */
     height: 50px; /* Adjust the height of each item */
     transition: transform 0.3s ease-in-out, 0.3s ease-in-out; /* Smooth scaling and background transition */
+    animation: staggeredBounceIn 0.8s ease-out;
+    animation-fill-mode: both; /* Retain final state */
 }
 
 .interest-item:hover {
@@ -181,12 +205,38 @@ ul:hover a:hover{
     left: -100%;
     width: 100%;
     height: 100%;
-    border: 2px solid turquoise;
-    transition: left 0.4s ease-in-out; /* Smooth border animation */
+    border: 1px solid turquoise;
+    transition: left 0.3s ease-in-out; /* Smooth border animation */
 }
 
 .interest-item:hover::before {
     left: 0; /* Slide the border into view */
+}
+
+.interest-item:nth-child(1) {
+    animation-delay: 0.1s; /* Delay for the first item */
+}
+
+.interest-item:nth-child(2) {
+    animation-delay: 0.3s; /* Delay for the second item */
+}
+
+.interest-item:nth-child(3) {
+    animation-delay: 0.5s; /* Delay for the third item */
+}
+
+.interest-item:nth-child(4) {
+    animation-delay: 0.7s; /* Delay for the fourth item */
+}
+
+.interest-item:nth-child(5) {
+    animation-delay: 0.9s; /* Delay for the fifth item */
+}
+.interest-item:nth-child(6) {
+    animation-delay: 0.6s; /* Delay for the fifth item */
+}
+.interest-item:nth-child(7) {
+    animation-delay: 0.2s; /* Delay for the fifth item */
 }
 
 .txt_value{
@@ -197,10 +247,6 @@ ul:hover a:hover{
     margin-left: 30px;
 }
 
-.i.interest-item:hover {
-    background: #3a3a3a;
-    transition:  0.5s ease-in-out;
-}
 .interest-item img {
     display: flex;
     position: absolute;
