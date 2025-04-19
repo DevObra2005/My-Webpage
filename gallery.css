@@ -143,3 +143,62 @@ ul:hover a:hover{
 .container img:hover{
     width: 25%;
 }
+
+/* Media query for phone screens */
+@media screen and (max-width: 600px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: poppins;
+    }
+    main{
+        background-color: #050608;
+        background-image: none; /* Remove background image for mobile */;
+    }
+    nav {
+        display:flex; /* Stack navigation items vertically */
+        padding: 20px;
+    }
+
+    ul {
+        display: flex; /* Stack menu items vertically */
+        align-items: center;
+        gap: 10px; /* Add spacing between menu items */
+    }
+
+    ul li a {
+        margin: 10px 0; /* Add spacing between menu items */
+        font-size: 10px; /* Increase font size for better readability */
+    }
+
+    .logo {
+        font-size: 20px; /* Adjust logo size */
+        margin-left: 0; /* Center the logo */
+        text-align: center;
+    }
+    .txt-gallery{
+        width: 80%; /* Adjust width for mobile */
+        font-size: 12px; /* Adjust font size for mobile */
+        text-align: center;
+        justify-content: center;
+        top: 15%;
+        position: absolute;
+    }
+    .img-gallery{
+        position: absolute;
+        top: 50%;
+        left: 20%; /* Center the images */
+        margin: 0 auto; /* Center the images */
+        width: 60%; /* Adjust width for mobile */
+        height: 30vh; /* Adjust height for mobile */
+        display: flex;
+        justify-content: center; /* Center images horizontally */
+    }
+    .img-gallery img{
+        display: flex; /* Stack images vertically */
+        width: 30%; /* Make the image take full width */
+        height: auto; /* Maintain aspect ratio */
+        top: 40%;
+    }
+}
