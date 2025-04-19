@@ -268,7 +268,7 @@ ul:hover a:hover{
     }
 }
 /* Media query for phone screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
     main{
         background-color: #050608;
         background-image: none; /* Remove background image for mobile */
