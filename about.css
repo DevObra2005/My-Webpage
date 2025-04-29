@@ -135,9 +135,8 @@ ul:hover a:hover{
 .interests {
     display: flex;
     position: absolute;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     color: white;
     gap: 20px;
     height: 9vh;
