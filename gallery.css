@@ -15,7 +15,6 @@ nav{
     align-items: center;
     padding: 30px 30px;
     margin-right: 20px;
-    position: relative;
     z-index: 1;
     animation: slideDown 0.8s ease-in-out; 
 }
