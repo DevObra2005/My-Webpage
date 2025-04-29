@@ -2,13 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: poppins;
+    font-family: poppins, sans-serif;
 }
 main{
     width: 100%;
     height: 100vh;
-    background-image: url(Resourcess_Homepage/Web.\ Background.jpg);
-    background-size: cover;
+    background-color: #050608;  
 }
 nav{
     display: flex;
@@ -16,8 +15,7 @@ nav{
     align-items: center;
     padding: 30px 30px;
     margin-right: 20px;
-    position: relative; 
-    z-index: 10; 
+    position: relative;  
     animation: slideDown 0.8s ease-in-out; 
 }
 @keyframes slideDown {
@@ -54,4 +52,33 @@ ul:hover a:hover{
     font-weight: bold;
     margin-left: 50px;
     text-transform: uppercase;
+}
+.container{
+    display: flex;
+    margin-top: 50px;
+    justify-self: center;
+    width: 50%;
+    height: 70vh;
+    justify-content: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color:rgba(20, 24, 28, 0.5);
+    box-shadow: 0 0 30px rgba(15, 228, 224, 0.71);
+}
+.container:hover{
+    box-shadow: 0 0 50px rgba(15, 228, 224, 0.71), 0 0 50px rgba(15, 228, 224, 0.71), 0 0 50px rgba(15, 228, 224, 0.71);
+    transition: ease-in-out .5s;
+}
+.container h3{
+    color: white;
+    margin-top: 20px;
+    height: max-content;
+    font-size: 30px;
+    font-weight: 400;
+}
+.form{
+    display: flex;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
 }
