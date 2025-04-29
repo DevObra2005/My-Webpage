@@ -153,7 +153,7 @@ ul:hover a:hover{
     }
     main{
         background-color: #050608;
-        height: 100vh;
+        height: max-content;
     }
     nav {
         display:flex;
