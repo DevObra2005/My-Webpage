@@ -101,8 +101,8 @@ ul:hover a:hover{
     font-style: italic;
 }
 .contact-info{
-    display: flex;
     position: absolute;
+    flex-direction: column;
     width: 40%;
     top: 40%;
     margin-left: 30%;
@@ -119,12 +119,10 @@ ul:hover a:hover{
     font-weight: 700;
     color: white;
 }
-
 .container {
     width: 50% ;
     margin: 0 auto;
 }
-
 .interest_line {
     text-align: center;
     margin-bottom: 40px;
@@ -134,7 +132,6 @@ ul:hover a:hover{
     font-size: 20px;
     animation: slideInLeft 1.0s ease-in-out;
 }
-
 .interests {
     display: flex;
     position: absolute;
@@ -338,4 +335,5 @@ ul:hover a:hover{
         position: absolute;
         top: 70%;
     }
+
 }
