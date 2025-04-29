@@ -272,7 +272,7 @@ ul:hover a:hover{
     main{
         background-color: #050608;
         background-image: none;
-        height: 130vh; 
+        height: 100vh; 
     }
     nav {
         display:flex; 
@@ -336,12 +336,14 @@ ul:hover a:hover{
     .interests {
         width: 100%;
         display: flex;
+        flex-direction: column;
+        align-self: center;
         flex-wrap: wrap;
-        height: 10vh;
     }
     .interest-item{
-        width: fit-content; 
-        height: fit-content; 
+        width: 10%;
+        height: 30px; 
+
     }
 
 }
