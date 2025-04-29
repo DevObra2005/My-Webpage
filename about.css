@@ -272,7 +272,7 @@ ul:hover a:hover{
     main{
         background-color: #050608;
         background-image: none;
-        height: 100vh; 
+        height: 110vh; 
     }
     nav {
         display:flex; 
@@ -329,21 +329,26 @@ ul:hover a:hover{
         left: 20%; 
     }
     .container {
-        width: 80%;
+        width: 100%;
         position: absolute;
         top: 70%;
     }
     .interests {
-        width: 100%;
         display: flex;
-        flex-direction: column;
-        align-self: center;
         flex-wrap: wrap;
+        left: 10%;
+        width: 80%;
     }
     .interest-item{
-        width: 10%;
-        height: 30px; 
-
+        width: 150px; 
+        height: 50px; 
+    }
+    .interest-item img {
+        padding-top: 5px;
+        width: 18px;
+    }
+    .txt_value{
+        font-size: 10px; 
     }
 
 }
