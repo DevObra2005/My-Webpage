@@ -271,7 +271,8 @@ ul:hover a:hover{
     }
     main{
         background-color: #050608;
-        background-image: none; 
+        background-image: none;
+        height: 130vh; 
     }
     nav {
         display:flex; 
@@ -320,18 +321,27 @@ ul:hover a:hover{
         font-size: 14px; 
     }
     .contact-info{
-        width: 60%;
+        width: 70%;
         margin: 0%;
-        font-size: 12px; 
-        text-align: center;
+        font-size: 12px;
+        text-align: left;
         top: 55%;
         left: 20%; 
     }
     .container {
-        width: 100%;
-        margin: 0 auto;
+        width: 80%;
         position: absolute;
         top: 70%;
+    }
+    .interests {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        height: 10vh;
+    }
+    .interest-item{
+        width: fit-content; 
+        height: fit-content; 
     }
 
 }
