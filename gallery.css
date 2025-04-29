@@ -118,7 +118,7 @@ ul:hover a:hover{
     height: 100%;
     border-radius: 10px;
     object-fit: cover;
-    box-shadow: 0 0 40px rgba(11, 219, 222, 0.5);
+    border: solid 1px rgb(4, 230, 255);;
     transition: all 0.5s ease-in-out; 
     animation: fadeIn 0.8s ease-out;
     animation-fill-mode: both;
@@ -126,7 +126,7 @@ ul:hover a:hover{
 .img-gallery img:hover {
     width: 85%; 
     transform: scale(1.1); 
-    box-shadow: 0 0 30px rgba(21, 24, 24, 0.7); 
+    box-shadow: 0 0 30px rgb(4, 230, 255);
 }
 .img-gallery img:nth-child(1) {
     animation-delay: 0.2s; 
