@@ -321,7 +321,7 @@ h2{
     padding: 10px 20px;
     font-weight: 400;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 </style>
 <body>
