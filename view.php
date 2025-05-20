@@ -52,9 +52,25 @@
         font-weight: 400;
         padding-left: 10px;
     }
+    .back-btn {
+        display: flex;
+        position: absolute;
+        top: 13%;
+        text-decoration: none;
+        border-radius: 8px;
+        background-color:rgb(255, 0, 0);
+        padding: 10px 20px;
+        left: 25%;
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
+    }
 </style>
 <body>
     <h1>View Page</h1>
+    <div>
+        <a class="back-btn" href="display.php">Back</a>
+    </div>
     <?php
     include "connect.php";
     $id = $_GET['id'];
@@ -71,6 +87,8 @@
                 <dd><?php echo $row['fname']; ?></dd>
                 <dt>Middlename:</dt> 
                 <dd><?php echo $row['mname']; ?></dd>
+                <dt>Suffix:</dt>
+                <dd><?php echo $row['sfxname']; ?></dd>
                 <dt>House Number:</dt> 
                 <dd><?php echo $row['housenum']; ?></dd>
                 <dt>Street:</dt> 

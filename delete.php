@@ -11,7 +11,7 @@
         $_SESSION['message'] = "<span class='delete-message'>Record successfully deleted</span>";
         header ('location: display.php');
     }else{
-        $_SESSION['message'] = "<span>Failed to delete record</span>";
+        $_SESSION['message'] = "<span class='delete-message'>Record Unsuccessfully deleted</span>";
         header ('location: display.php');
     }
 ?>

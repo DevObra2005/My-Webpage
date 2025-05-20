@@ -37,11 +37,11 @@
 }
     table {
         position: relative;
-        left: 10%;
+        left: 20%;
         border: 1px solid rgb(1, 238, 255);
-        width: 80%;
+        width: 60%;
         border-collapse: collapse;
-        margin-top: 50px;
+        margin-top: 80px;
     }
     th, td {
         padding: 10px;
@@ -124,8 +124,6 @@
             <div class="addrecord">
                 <a class="addrecord" href="resume.php">Add Record</a>
             </div>
-        
-
         <?php
             session_start();
             if(isset($_SESSION['message'])){
@@ -160,7 +158,7 @@
                         <td> <?php echo $row['mname']; ?></td>
                         <td>
                             <a class="view" href="view.php?id=<?=$row['id'];?>" >View</a>
-                            <a class="edit" href="edit.php?id=<?=$row['id'];?>" >Edit</a>
+                            <a class="edit" href="update.php?id=<?=$row['id'];?>" >Edit</a>
                             <a class="delete" href="delete.php?id=<?=$row['id'];?>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
                         </td>
                     </tr>

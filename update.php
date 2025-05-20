@@ -3,67 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="resume.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Resume</title>
+    <title>Document</title>
 </head>
 <style>
-    *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: poppins, sans-serif;
-}
-main{
-    width: 100%;
-    height: 100vh;
-    background-color: #050608;  
-}
-nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 30px;
-    margin-right: 20px;
-    animation: slideDown 0.8s ease-in-out; 
-}
-@keyframes slideDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-100%);
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #050608;  
+        margin: 0;
+        padding: 20px;
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-ul{
-    list-style-type: none;
-    display: flex;
-}
-li a{
-    margin: 0px 15px;
-    color: white;
-    font-size: 15px;
-    text-decoration: none;
-}
-ul:hover a{
-    color: #575757;
-    transition: ease-in-out .5s;
-}
-ul:hover a:hover{
-    color: turquoise;
-    box-shadow: 0 2px 0 0 turquoise;
-}
-.logo{
-    color: turquoise;
-    font-size: 25px;
-    font-weight: bold;
-    margin-left: 50px;
-    text-transform: uppercase;
-}
-.container{
+    .container{
     display: flex;
     justify-content: center;
     width: 90%;
@@ -73,11 +22,6 @@ ul:hover a:hover{
     border: 1px solid white;
     border-radius: 10px;
     background-color:rgba(20, 24, 28, 0.5);
-    box-shadow: 0 0 30px rgba(15, 228, 224, 0.71);
-}
-.container:hover{
-    box-shadow: 0 0 50px rgba(15, 228, 224, 0.71), 0 0 50px rgba(15, 228, 224, 0.71), 0 0 50px rgba(15, 228, 224, 0.71);
-    transition: ease-in-out .5s;
 }
 h3{
     display: flex;
@@ -88,7 +32,7 @@ h3{
 }
 .name{
     display: flex;
-    margin-left: 200px;
+    margin-left: 60px;
     margin-top: 3%;
     gap: 10px;
 }
@@ -108,14 +52,14 @@ h3{
 .adress{
     display:flex;
     position: absolute;
-    top: 40%;
+    top: 35%;
     margin-top: 10px;
     padding: 20px;
     border: 1px solid white;
 }
 h2{
     display: flex;
-    top: 33%;
+    top: 28%;
     margin-top: 20px;
     position: absolute;
     justify-content: center;
@@ -329,86 +273,85 @@ h2{
     background-color: turquoise;
     transition: ease-in-out .5s;
 }
-.recordcss{
-    display: flex;
+.back-btn {
+        display: flex;
+        position: absolute;
+        top: 8%;
+        text-decoration: none;
+        border-radius: 8px;
+        background-color:rgb(255, 0, 0);
+        padding: 10px 20px;
+        left: 8%;
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
+}
+.record-message{
     position: absolute;
-    top: 86%;
-    left: 68%;
-    color: green;
-    font-size: 14px;
+    top: 68%;
+    left: 150%;
+    color: red;
+    width: 90%;
+    font-size: 16px;
     font-weight: 400;
-}
-.display{
-}
-.display a{
-    display: flex;
-    position: absolute;
-    top: 15%;
-    text-decoration: none;
-    border-radius: 10px;
-    background-color:rgb(128, 124, 124);
-    padding: 10px 20px;
-    left: 80%;
-    color: white;
-    font-size: 14px;
-    font-weight: 400;
-}
-.display a:hover{
-    background-color: red;
-    transition: ease-in-out .5s;
 }
 </style>
-
 <body>
-<main>
-        <nav>
-            <div class="logo">Obra.</div>
-             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="resume.php">Resume</a></li>
-             </ul>
-        </nav>
-        <div class="display">
-            <a href="display.php">View all records</a>
-            <h3>Personal Data Sheet</h3>
-        <form action="resume.php" method="Post">
+
+
+        <?php 
+        $id = $_GET['id'];
+        include "connect.php";
+
+        $sql = "SELECT * FROM my_pds WHERE id = $id";
+        $query = mysqli_query($con, $sql);
+
+        while($row = mysqli_fetch_array($query)){
+            
+        ?>
+
+        <h3>Update Record</h3>
+        <div>
+            <a class="back-btn" href="display.php">Back</a>
+        </div>
+        <form action="update.php?id=<?php echo $id; ?>" method="post">
+
         <div class="container" >
             <div class="form" >
                 <div class="name">
                 <label for="lastname">Last Name:</label><br>
-                <input type="text" id="lastname" name="lastname" required ><br><br>
+                <input type="text" id="lastname" value="<?php echo $row['lname'];?>" name="lastname" required ><br><br>
                 <label for="firstname">First Name:</label><br>
-                <input type="text" id="firstname" name="firstname" required ><br><br>
+                <input type="text" id="firstname"  value="<?php echo $row['fname'];?>" name="firstname" required ><br><br>
                 <label for="middlename">Middle Name:</label><br>
-                <input type="text" id="middlename" name="middlename" ><br><br>
+                <input type="text" id="middlename" value="<?php echo $row['mname'];?>"  name="middlename" ><br><br>
                 <label for="suffix">Suffix:</label><br>
-                <input type="text" id="suffix" name="suffix"><br><br>
+                <input type="text" id="suffix" value="<?php echo $row['sfxname'];?>"  name="suffix"><br><br>
                 </div>
             </div> 
             <h2>Residential Address</h2>
             <div class="adress">
                 <label for="House">House No.</label><br>
-                <input type="text" id="house" name="house"><br><br>
+                <input type="text" value="<?php echo $row['housenum'];?>"  name="house"><br><br>
                 <label for="Street">Street:</label><br>
-                <input type="text" id="Street" name="Street" required><br><br>
+                <input type="text" value="<?php echo $row['street'];?>"  name="Street"><br><br>
                 <label for="Barangay">Barangay:</label><br>
-                <input type="text" id="Barangay" name="Barangay" required><br><br>
+                <input type="text" value="<?php echo $row['brgy'];?>"  name="Barangay"><br><br>
                 <label for="city">City/Town:</label><br>
-                <input type="text" id="city" name="city" required><br><br>
+                <input type="text" value="<?php echo $row['city'];?>"  name="city"><br><br>
                  <label for="Province">Province:</label><br>
-                <input type="text" id="province" name="province" required><br><br>
+                <input type="text" value="<?php echo $row['province'];?>"  name="province"><br><br>
                  <label for="zipcode">Zip Code:</label><br>
-                <input type="text" id="zipcode" name="zipcode" required><br><br>
+                <input type="text" value="<?php echo $row['zipcode'];?>"  name="zipcode"><br><br>
             </div>
             <h2 class="gender">Gender</h2>
             <div class="radio-gender">
-                <input type="radio"  name="gender">
+                <input type="radio" name="gender" value="Male" <?php if ($row['gender'] == 'Male') echo 'checked'; ?>> 
                 <label>Male</label>
-                <input type="radio" name="gender">
+                <input type="radio" name="gender" value="Female" <?php if ($row['gender'] == 'Female') echo 'checked'; ?>> 
                 <label>Female</label>
             </div>
+
             <h2 class="status">Civil Status</h2>
             <div class="dropdown-status">
                         <select name="status">
@@ -421,116 +364,85 @@ h2{
             </div>
              <div class="birthdate">
                 <label for="birthdate">Birthdate:</label><br>
-                <input type="date" id="birthdate" name="birthdate"><br><br>
+                <input type="date" value="<?php echo $row['birth'];?>"  name="birthdate"><br><br>
             </div>
             <div class="birthplace">
                 <label for="birthplace">Place of Birth:</label><br>
-                <input type="text" id="birthplace" name="birthplace" required><br><br>
+                <input type="text" value="<?php echo $row['placebirth'];?>"  name="birthplace"><br><br>
             </div>
             <div class="contact-info">
                 <label for="cpnumber">Cellphone No.:</label><br>
-                <input type="tel" name="cpnumber" required><br><br>
+                <input type="tel" value="<?php echo $row['cpnum'];?>" name="cpnumber"><br><br>
                 <label for="telephone">Telephone No.:</label><br>
-                <input type="tel"  name="telphone"><br><br>
+                <input type="tel"  value="<?php echo $row['telnum'];?>" name="telphone"><br><br>
                 <label for="citizenship">Citizenship:</label><br>
-                <input type="text"  name="citizenship" required><br><br>
+                <input type="text" value="<?php echo $row['citizenship'];?>"  name="citizenship"><br><br>
             </div>
             <div class="email">
                 <label for="email">Email Address:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
+                <input type="email" value="<?php echo $row['email'];?>"  name="email"><br><br>
+            
+            <?php
+            }
+            ?>
+            <?php
+            include "connect.php";
+            if(isset($_POST['update'])) {
+                $id = $_GET['id'];
+                $lastname = $_POST['lastname'];
+                $firstname = $_POST['firstname'];
+                $middlename = $_POST['middlename'];
+                $suffix = $_POST['suffix'];
+                $house = $_POST['house'];
+                $street = $_POST['Street'];
+                $barangay = $_POST['Barangay'];
+                $city = $_POST['city'];
+                $province = $_POST['province'];
+                $zipcode = $_POST['zipcode'];
+                $gender = $_POST['gender'] ?? '';
+                $status = $_POST['status'];
+                $birthdate = $_POST['birthdate'];
+                $birthplace = $_POST['birthplace'];
+                $cpnumber = $_POST['cpnumber'];
+                $telphone = $_POST['telphone'];
+                $citizenship = $_POST['citizenship'];
+                $email = $_POST['email'];
+
+                $sql = "UPDATE my_pds SET 
+                    lname='$lastname',
+                    fname='$firstname',
+                    mname='$middlename',
+                    sfxname='$suffix',
+                    housenum='$house',
+                    street='$street',
+                    brgy='$barangay',
+                    city='$city',
+                    province='$province',
+                    zipcode='$zipcode',
+                    gender='$gender',
+                    status='$status',
+                    birth='$birthdate',
+                    placebirth='$birthplace',
+                    cpnum='$cpnumber',
+                    telnum='$telphone',
+                    citizenship='$citizenship',
+                    email='$email'
+                    WHERE id=$id";
+
+                $query = mysqli_query($con, $sql);
+
+                if($query){
+                    echo "<span class='record-message'>Record successfully updated</span>";
+                } else {
+                    echo "<span class='record-message'>Field to Update record</span>";
+                }
+            }
+            ?>
+
             </div>
             <div class="submit">
-                <input type="submit" name= "submit" value="Submit">
+                <input type="submit" name= "update" value="Update">
         </div>
     </form>
-</main>
-<?php
-// Global variables
-$lastname_error = "";
-$firstname_error = "";
-$middlename_error = "";
-$suffix_error = "";
-$house_error = "";
-$street_error = "";
-$brgy_error = "";
-$city_error = "";
-$province_error = "";
-$zipcode_error = "";
-$gender_error = "";
-$birthdate_error = "";
-$placebirth_error = "";
-$status_error = "";
-$cpnumber_error = "";
-$telphone_error = "";
-$citizenship_error = "";
-$email_error = "";
-
-if(isset($_POST['submit'])){
-    
-    if($_POST['status'] == 1){
-        $status = "Single";
-    }elseif($_POST['status'] == 2){
-        $status = "Married";
-    }elseif($_POST['status'] == 3){
-        $status = "Widowed";
-    }elseif($_POST['status'] == 4){
-         $status = "Separated";
-    }else{
-        $status_error = "<span>Please select one</span>";
-    }
-
-    if(isset($_POST['gender'])){
-        if($_POST['gender'] == "male"){
-            $gender = "Male";
-        }else{
-            $gender = "Female";
-        }
-        }else{
-            $gender_error = "<span>Please select one</span>";
-    }
-
-    if(empty($gender_error) && empty($status_error)){
-
-        include "connect.php";
-
-        
-        $lastname = $_POST['lastname'];
-        $firstname = $_POST['firstname'];
-        $middlename = $_POST['middlename'];
-        $suffix = $_POST['suffix'];
-        $house = $_POST['house'];
-        $street = $_POST['Street'];
-        $brgy = $_POST['Barangay'];
-        $city = $_POST['city'];
-        $province = $_POST['province'];
-        $zipcode = $_POST['zipcode'];
-        $gender = $_POST['gender'];
-        $birthdate = $_POST['birthdate'];
-        $placebirth = $_POST['birthplace'];
-        $status = $_POST['status'];
-        $cpnumber = $_POST['cpnumber'];
-        $telphone = $_POST['telphone'];
-        $citizenship = $_POST['citizenship'];
-        $email = $_POST['email'];
-
-// Command to insert data to the database
-        $sql = "INSERT INTO my_pds (lname, fname, mname, sfxname, housenum, street, brgy, city, province, zipcode, gender, birth, placebirth, status, cpnum, telnum, citizenship, email)
-        VALUES ('$lastname', '$firstname', '$middlename', '$suffix', '$house', '$street', '$brgy', '$city', '$province', '$zipcode', '$gender', '$birthdate', '$placebirth', '$status', 
-        '$cpnumber', '$telphone', '$citizenship', '$email')";
-
-         $query = mysqli_query($con, $sql);
-            if($query){
-                echo "<span class='recordcss'>Record successfully added</span>"; 
-            }else {
-                 echo "<span>Failed to add record: </span>" . $sql . "<br>" . mysqli_error($con);
-            }
-            mysqli_close($con);
-            }else{
-                $status_error = $status_error;
-                $gender_error = $gender_error;
-            }
-// database connection
-}
-?>
 </body>
 </html>
