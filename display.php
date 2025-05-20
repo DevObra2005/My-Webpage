@@ -21,12 +21,12 @@
     .addrecord a{
         display: flex;
         position: absolute;
-        top: 14%;
+        top: 18%;
         text-decoration: none;
         border-radius: 8px;
         background-color:rgb(128, 124, 124);
         padding: 10px 20px;
-        left: 80%;
+        left: 70%;
         color: white;
         font-size: 14px;
         font-weight: 400;

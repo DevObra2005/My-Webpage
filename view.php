@@ -41,7 +41,7 @@
     }
     .view-details dt {
         font-weight: 600;
-        color:rgb(255, 1, 1);
+        color:rgb(1, 238, 255);
         text-align: start;
         padding-right: 10px;
     }
