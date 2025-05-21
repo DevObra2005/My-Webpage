@@ -357,8 +357,84 @@ h2{
     background-color: red;
     transition: ease-in-out .5s;
 }
+.gender-validation{
+    display: flex;
+    position: absolute;
+    top: 42%;
+    left: 3%;
+    margin-top: 30px;
+    color: red;
+    font-weight: 400;
+    font-size: 16px;
+    margin-left: 20
+    color: red;
+    font-size: 14px;
+}
+.status-validation{
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
 </style>
+<?php
+$gender_error = "";
+$status_error = "";
 
+if(isset($_POST['submit'])){
+    
+
+    if (!isset($_POST['status']) || $_POST['status'] == "0") {
+        $status_error = "<span class='status-validation' >Please select a civil status</span>";
+    } else {
+        $status = $_POST['status'];
+    }
+
+    if (!isset($_POST['gender'])) {
+        $gender_error = "<span class='gender-validation'>Please select a gender</span>";
+    } else {
+        $gender = $_POST['gender'];
+    }
+
+    if(empty($gender_error) && empty($status_error)){
+
+        include "connect.php";
+
+        
+        $lastname = $_POST['lastname'];
+        $firstname = $_POST['firstname'];
+        $middlename = $_POST['middlename'];
+        $suffix = $_POST['suffix'];
+        $house = $_POST['house'];
+        $street = $_POST['Street'];
+        $brgy = $_POST['Barangay'];
+        $city = $_POST['city'];
+        $province = $_POST['province'];
+        $zipcode = $_POST['zipcode'];
+        $gender = $_POST['gender'];
+        $birthdate = $_POST['birthdate'];
+        $placebirth = $_POST['birthplace'];
+        $status = $_POST['status'];
+        $cpnumber = $_POST['cpnumber'];
+        $telphone = $_POST['telphone'];
+        $citizenship = $_POST['citizenship'];
+        $email = $_POST['email'];
+
+// Command to insert data to the database
+        $sql = "INSERT INTO my_pds (lname, fname, mname, sfxname, housenum, street, brgy, city, province, zipcode, gender, birth, placebirth, status, cpnum, telnum, citizenship, email)
+        VALUES ('$lastname', '$firstname', '$middlename', '$suffix', '$house', '$street', '$brgy', '$city', '$province', '$zipcode', '$gender', '$birthdate', '$placebirth', '$status', 
+        '$cpnumber', '$telphone', '$citizenship', '$email')";
+
+         $query = mysqli_query($con, $sql);
+            if($query){
+                echo "<span class='recordcss'>Record successfully added</span>"; 
+            }else {
+                 echo "<span>Failed to add record: </span>" . $sql . "<br>" . mysqli_error($con);
+            }
+            mysqli_close($con);
+            }
+}
+
+?>
 <body>
 <main>
         <nav>
@@ -404,24 +480,26 @@ h2{
             </div>
             <h2 class="gender">Gender</h2>
             <div class="radio-gender">
-                <input type="radio"  name="gender">
+                <input type="radio"  name="gender" value="Male">
                 <label>Male</label>
-                <input type="radio" name="gender">
+                <input type="radio" name="gender" value="Female">
                 <label>Female</label>
+                 <?php if (!empty($gender_error)) echo $gender_error; ?>
             </div>
             <h2 class="status">Civil Status</h2>
             <div class="dropdown-status">
                         <select name="status">
                             <option value="0">Choose One...</option>
-                            <option value="1">Single</option>
-                            <option value="2">Married</option>
-                            <option value="3">Widowed</option>
-                            <option value="4">Separated</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Widowed">Widowed</option>
+                            <option value="Separated">Separated</option>
                         </select>
+                <?php if (!empty($status_error)) echo $status_error; ?>
             </div>
              <div class="birthdate">
                 <label for="birthdate">Birthdate:</label><br>
-                <input type="date" id="birthdate" name="birthdate"><br><br>
+                <input type="date" id="birthdate" name="birthdate" required><br><br>
             </div>
             <div class="birthplace">
                 <label for="birthplace">Place of Birth:</label><br>
@@ -444,93 +522,5 @@ h2{
         </div>
     </form>
 </main>
-<?php
-// Global variables
-$lastname_error = "";
-$firstname_error = "";
-$middlename_error = "";
-$suffix_error = "";
-$house_error = "";
-$street_error = "";
-$brgy_error = "";
-$city_error = "";
-$province_error = "";
-$zipcode_error = "";
-$gender_error = "";
-$birthdate_error = "";
-$placebirth_error = "";
-$status_error = "";
-$cpnumber_error = "";
-$telphone_error = "";
-$citizenship_error = "";
-$email_error = "";
-
-if(isset($_POST['submit'])){
-    
-    if($_POST['status'] == 1){
-        $status = "Single";
-    }elseif($_POST['status'] == 2){
-        $status = "Married";
-    }elseif($_POST['status'] == 3){
-        $status = "Widowed";
-    }elseif($_POST['status'] == 4){
-         $status = "Separated";
-    }else{
-        $status_error = "<span>Please select one</span>";
-    }
-
-    if(isset($_POST['gender'])){
-        if($_POST['gender'] == "male"){
-            $gender = "Male";
-        }else{
-            $gender = "Female";
-        }
-        }else{
-            $gender_error = "<span>Please select one</span>";
-    }
-
-    if(empty($gender_error) && empty($status_error)){
-
-        include "connect.php";
-
-        
-        $lastname = $_POST['lastname'];
-        $firstname = $_POST['firstname'];
-        $middlename = $_POST['middlename'];
-        $suffix = $_POST['suffix'];
-        $house = $_POST['house'];
-        $street = $_POST['Street'];
-        $brgy = $_POST['Barangay'];
-        $city = $_POST['city'];
-        $province = $_POST['province'];
-        $zipcode = $_POST['zipcode'];
-        $gender = $_POST['gender'];
-        $birthdate = $_POST['birthdate'];
-        $placebirth = $_POST['birthplace'];
-        $status = $_POST['status'];
-        $cpnumber = $_POST['cpnumber'];
-        $telphone = $_POST['telphone'];
-        $citizenship = $_POST['citizenship'];
-        $email = $_POST['email'];
-
-// Command to insert data to the database
-        $sql = "INSERT INTO my_pds (lname, fname, mname, sfxname, housenum, street, brgy, city, province, zipcode, gender, birth, placebirth, status, cpnum, telnum, citizenship, email)
-        VALUES ('$lastname', '$firstname', '$middlename', '$suffix', '$house', '$street', '$brgy', '$city', '$province', '$zipcode', '$gender', '$birthdate', '$placebirth', '$status', 
-        '$cpnumber', '$telphone', '$citizenship', '$email')";
-
-         $query = mysqli_query($con, $sql);
-            if($query){
-                echo "<span class='recordcss'>Record successfully added</span>"; 
-            }else {
-                 echo "<span>Failed to add record: </span>" . $sql . "<br>" . mysqli_error($con);
-            }
-            mysqli_close($con);
-            }else{
-                $status_error = $status_error;
-                $gender_error = $gender_error;
-            }
-// database connection
-}
-?>
 </body>
 </html>

@@ -355,11 +355,37 @@ h2{
             <h2 class="status">Civil Status</h2>
             <div class="dropdown-status">
                         <select name="status">
-                            <option value="0">Choose One...</option>
-                            <option value="1">Single</option>
-                            <option value="2">Married</option>
-                            <option value="3">Widowed</option>
-                            <option value="4">Separated</option>
+                            <?php
+                                    if($row['status'] == "Single"){
+                                        echo '
+                                        <option value="Single" selected>Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Widowed">Widowed</option>
+                                        <option value="Separated">Separated</option>
+                                        ';
+                                    }elseif($row['status'] == "Married"){
+                                        echo '
+                                        <option value="Single">Single</option>
+                                        <option value="Married" selected>Married</option>
+                                        <option value="Widowed">Widowed</option>
+                                        <option value="Separated">Separated</option>
+                                        ';
+                                    }elseif($row['status'] == "Widowed"){
+                                        echo '
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Widowed" selected>Widowed</option>
+                                        <option value="Separated">Separated</option>
+                                        ';
+                                    }else{
+                                        echo '
+                                        <option value="Single">Single</option>
+                                        <option value="Married">Married</option>
+                                        <option value="Widowed" selected>Widowed</option>
+                                        <option value="Separated">Separated</option>
+                                        ';
+                                    }
+                                ?>
                         </select>
             </div>
              <div class="birthdate">
